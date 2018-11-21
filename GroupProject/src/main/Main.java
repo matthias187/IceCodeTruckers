@@ -23,7 +23,7 @@ public class Main extends Application
         this.stage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("fxmls/login.fxml"));
         Scene scene = new Scene(root, MENU_WIDTH, MENU_HEIGHT);
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("Ice Code Truckers");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

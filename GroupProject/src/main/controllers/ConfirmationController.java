@@ -7,11 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PlaceOrderController {
+public class ConfirmationController {
     @FXML
-    private Button placeOrder;
-    @FXML
-    private Button back;
+    private Button returnHome;
     @FXML
     private Hyperlink signOut;
 
@@ -19,9 +17,9 @@ public class PlaceOrderController {
     private ControllerUtility utility = new ControllerUtility();
 
     @FXML
-    public void placeOrderPressed() throws IOException {
-        Stage stage = (Stage) placeOrder.getScene().getWindow();
-        utility.loadNewFXML(stage, "../fxmls/confirmation.fxml");
+    public void returnHomePressed() throws IOException {
+        Stage stage = (Stage) returnHome.getScene().getWindow();
+        utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
     }
 
     @FXML
@@ -29,12 +27,5 @@ public class PlaceOrderController {
         Stage stage = (Stage) signOut.getScene().getWindow();
         // log out logic
         utility.loadNewFXML(stage, "../fxmls/login.fxml");
-    }
-
-    @FXML
-    public void backPressed() throws IOException {
-        Stage stage = (Stage) back.getScene().getWindow();
-        // log out logic
-        utility.back();
     }
 }

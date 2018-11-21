@@ -21,14 +21,14 @@ public class LoginController {
     @FXML
     public void registerNewUserPressed() throws IOException {
         Stage stage = (Stage) registerNewUser.getScene().getWindow();
-        utility.loadNewFXML(stage, "register_new_user.fxml");
+        utility.loadNewFXML(stage, "../fxmls/register_new_user.fxml");
     }
 
     @FXML
     public void loginPressed() throws IOException {
         Stage stage = (Stage) login.getScene().getWindow();
         //if user is non-admin{
-            utility.loadNewFXML(stage, "user_landing_page.fxml");
+            utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
         //else if user is admin
             //utility.loadNewFXML(stage, "admin_landing_page.fxml");
     }

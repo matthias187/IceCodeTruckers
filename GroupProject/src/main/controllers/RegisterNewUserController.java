@@ -2,6 +2,7 @@ package main.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 import main.controllers.ControllerUtility;
 
 import java.io.IOException;
@@ -23,6 +24,7 @@ public class RegisterNewUserController {
 
     @FXML
     public void back() throws IOException {
+        Stage stage = (Stage) back.getScene().getWindow();
         utility.back();
     }
 }

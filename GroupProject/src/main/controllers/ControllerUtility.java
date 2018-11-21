@@ -13,7 +13,7 @@ public class ControllerUtility {
 
     public ControllerUtility(){
         if (fxmlsLoaded.size() == 0){
-            fxmlsLoaded.push("login.fxml");
+            fxmlsLoaded.push("../fxmls/login.fxml");
         }
     }
 
