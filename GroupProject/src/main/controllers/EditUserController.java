@@ -1,22 +1,19 @@
 package main.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import main.controllers.ControllerUtility;
 
 import java.io.IOException;
 
-public class RegisterNewUserController {
+public class EditUserController {
+
     private ControllerUtility utility = new ControllerUtility();
 
     @FXML
     private Button cancel;
     @FXML
-    private Button submit;
+    private Button submitUpdate;
     @FXML
     private TextField username;
     @FXML
@@ -65,14 +62,19 @@ public class RegisterNewUserController {
     private CheckBox sameAsShipping;
 
     @FXML
-    public void submitNewUser() throws IOException {
+    public void submitUpdateUser() throws IOException {
         //add user logic
         utility.back();
     }
 
     @FXML
-    public void back() throws IOException {
+    public void cancel() throws IOException {
         Stage stage = (Stage) cancel.getScene().getWindow();
         utility.back();
+    }
+
+    @FXML
+    public void setSameAsShipping(){
+        //add logic here
     }
 }

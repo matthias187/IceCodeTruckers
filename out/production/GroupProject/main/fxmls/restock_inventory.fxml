@@ -23,13 +23,13 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <MenuButton mnemonicParsing="false" text="Restock item 1">
+            <MenuButton fx:id="restockItem" mnemonicParsing="false" text="Restock item 1">
               <items>
                 <MenuItem mnemonicParsing="false" text="Restock item 2" />
                 <MenuItem mnemonicParsing="false" text="Restock itrem 3" />
               </items>
             </MenuButton>
-            <TextField promptText="Quantity">
+            <TextField fx:id="quantity" promptText="Quantity">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -42,7 +42,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
             <Button fx:id="submitOrder" mnemonicParsing="false" onAction="#submitPressed" text="Submit" />
-            <Button mnemonicParsing="false" text="Back">
+            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancelPressed" text="Cancel">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

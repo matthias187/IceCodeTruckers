@@ -14,7 +14,7 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.RegisterNewUserController">
    <children>
-      <VBox layoutX="66.0" layoutY="25.0" prefHeight="550.0" prefWidth="204.0">
+      <VBox layoutX="67.0" layoutY="13.0" prefHeight="550.0" prefWidth="204.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
             <TextField>
@@ -38,7 +38,7 @@
             <TextField />
          </children>
       </VBox>
-      <VBox layoutX="410.0" layoutY="25.0" prefHeight="550.0" prefWidth="204.0">
+      <VBox layoutX="411.0" layoutY="13.0" prefHeight="550.0" prefWidth="204.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
             <TextField>
@@ -59,18 +59,28 @@
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Name" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-            <TextField />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" />
-            <TextField />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
          </children>
       </VBox>
-      <VBox layoutX="752.0" layoutY="25.0" prefHeight="550.0" prefWidth="204.0">
+      <VBox layoutX="753.0" layoutY="13.0" prefHeight="550.0" prefWidth="204.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Type">
                <VBox.margin>
@@ -151,18 +161,36 @@
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Name" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-            <TextField />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" />
-            <TextField />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
+            <TextField>
+               <VBox.margin>
+                  <Insets bottom="7.0" />
+               </VBox.margin></TextField>
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="submit" mnemonicParsing="false" onAction="#submitNewUser" text="Submit">
+                     <HBox.margin>
+                        <Insets right="7.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#back" text="Cancel" />
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <Button fx:id="submit" layoutX="351.0" layoutY="550.0" mnemonicParsing="false" onAction="#submitNewUser" text="Submit" />
-      <Button fx:id="back" layoutX="275.0" layoutY="547.0" mnemonicParsing="false" onAction="#back" text="Back" />
    </children>
 </AnchorPane>

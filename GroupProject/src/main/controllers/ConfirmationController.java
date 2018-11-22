@@ -20,6 +20,7 @@ public class ConfirmationController {
     public void returnHomePressed() throws IOException {
         Stage stage = (Stage) returnHome.getScene().getWindow();
         utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
+        //utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
     }
 
     @FXML
@@ -27,5 +28,6 @@ public class ConfirmationController {
         Stage stage = (Stage) signOut.getScene().getWindow();
         // log out logic
         utility.loadNewFXML(stage, "../fxmls/login.fxml");
+
     }
 }

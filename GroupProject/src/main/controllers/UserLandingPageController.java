@@ -35,6 +35,6 @@ public class UserLandingPageController {
     public void editAccountPressed() throws IOException {
         Stage stage = (Stage) editAccount.getScene().getWindow();
         // log out logic
-        utility.loadNewFXML(stage, "../fxmls/edit_account.fxml");
+        utility.loadNewFXML(stage, "../fxmls/edit_user.fxml");
     }
 }

@@ -30,7 +30,7 @@ public class LoginController {
         //if user is non-admin{
             utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
         //else if user is admin
-            //utility.loadNewFXML(stage, "admin_landing_page.fxml");
+            //utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
     }
 
 }

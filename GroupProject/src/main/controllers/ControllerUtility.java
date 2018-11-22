@@ -22,7 +22,7 @@ public class ControllerUtility {
 
     public void back() throws IOException {
         fxmlsLoaded.pop();
-        Parent root = FXMLLoader.load(getClass().getResource(fxmlsLoaded.pop()));
+        Parent root = FXMLLoader.load(getClass().getResource(fxmlsLoaded.peek()));
         Scene scene = new Scene(root, Main.MENU_WIDTH, Main.MENU_HEIGHT);
         Main.stage.setScene(scene);
         Main.stage.show();
