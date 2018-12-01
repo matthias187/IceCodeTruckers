@@ -2,7 +2,6 @@ package main.controllers;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
@@ -37,13 +36,15 @@ public class LoginController {
     public void loginPressed() throws IOException, SQLException {
         Stage stage = (Stage) login.getScene().getWindow();
         DatabaseUtility dbUtil = new DatabaseUtility();
-        ResultSet getUser = dbUtil.queryDatabase("SELECT * FROM User WHERE UserName='"+username+"'");
+        String query = "SELECT * FROM User WHERE UserName=\'"+username.getText()+"\';";
+        ResultSet getUser = dbUtil.queryDatabase(query);
         if (!getUser.next()) {
             utility.showAlert("Authentication Error", "That username doesn't exist!");
-        } else if (!getUser.getString(9).equals(password)){
+        }
+        else if (!getUser.getString(9).equals(password.getText())){
             utility.showAlert("Authentication Error", "Incorrect password!");
         }
-        if(getUser.getString(7).equals("T")){
+        else if(getUser.getString(7).equals("T")){
             utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
         }
         else utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");

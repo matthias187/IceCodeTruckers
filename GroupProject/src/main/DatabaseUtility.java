@@ -14,6 +14,11 @@ public class DatabaseUtility {
 
 
     private void getConnection() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         connection = DriverManager.getConnection(jdburl);
     }
 
@@ -25,7 +30,6 @@ public class DatabaseUtility {
         getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(query);
-        closeConnection();
         return resultSet;
     }
 
