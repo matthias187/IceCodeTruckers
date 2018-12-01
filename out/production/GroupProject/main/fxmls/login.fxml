@@ -34,12 +34,12 @@
                   <Insets bottom="5.0" />
                </VBox.margin>
             </Text>
-            <TextField maxWidth="250.0" promptText="Username">
+            <TextField fx:id="username" maxWidth="250.0" promptText="Username">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </TextField>
-            <TextField maxWidth="250.0" promptText="Password" />
+            <TextField fx:id="password" maxWidth="250.0" promptText="Password" />
             <Hyperlink fx:id="registerNewUser" onAction="#registerNewUserPressed" text="Register New User">
                <VBox.margin>
                   <Insets bottom="5.0" />

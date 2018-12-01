@@ -2,11 +2,16 @@ package main.controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import main.DatabaseUtility;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class LoginController {
 
@@ -15,6 +20,10 @@ public class LoginController {
     private Button login;
     @FXML
     private Hyperlink registerNewUser;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField password;
 
     private ControllerUtility utility = new ControllerUtility();
 
@@ -25,12 +34,19 @@ public class LoginController {
     }
 
     @FXML
-    public void loginPressed() throws IOException {
+    public void loginPressed() throws IOException, SQLException {
         Stage stage = (Stage) login.getScene().getWindow();
-        //if user is non-admin{
-            utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
-        //else if user is admin
-            //utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
+        DatabaseUtility dbUtil = new DatabaseUtility();
+        ResultSet getUser = dbUtil.queryDatabase("SELECT * FROM User WHERE UserName='"+username+"'");
+        if (!getUser.next()) {
+            utility.showAlert("Authentication Error", "That username doesn't exist!");
+        } else if (!getUser.getString(9).equals(password)){
+            utility.showAlert("Authentication Error", "Incorrect password!");
+        }
+        if(getUser.getString(7).equals("T")){
+            utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
+        }
+        else utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
     }
 
 }

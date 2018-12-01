@@ -3,6 +3,7 @@ package main.controllers;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import main.Main;
 
@@ -34,5 +35,13 @@ public class ControllerUtility {
         stage.setScene(scene);
         fxmlsLoaded.push(fxml);
         stage.show();
+    }
+
+    public void showAlert(String title, String content){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
     }
 }
