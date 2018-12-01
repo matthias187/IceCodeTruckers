@@ -68,6 +68,9 @@ public class RegisterNewUserController {
 
     @FXML
     public void submitNewUser() throws IOException, SQLException {
+        if( username.getText().equals("") || password.getText().equals("")){
+            utility.showAlert("Registration Error", "You must enter a username and password!");
+        }
         DatabaseUtility dbUtil = new DatabaseUtility();
         String query = "SELECT * FROM User WHERE UserName=\'"+username.getText()+"\';";
         ResultSet getUser = dbUtil.queryDatabase(query);

@@ -11,6 +11,7 @@ public class DatabaseUtility {
     private final String databaseName = "IceCream";
     private final String jdburl = "jdbc:mysql://" + hostname + ":" + port + "/" + databaseName + "?user=" + username + "&password=" + password;
     private static Connection connection;
+    public static User currentUser;
 
 
     private void getConnection() throws SQLException {
@@ -22,7 +23,7 @@ public class DatabaseUtility {
         connection = DriverManager.getConnection(jdburl);
     }
 
-    private void closeConnection() throws SQLException {
+    public void closeConnection() throws SQLException {
         connection.close();
     }
 
@@ -39,5 +40,9 @@ public class DatabaseUtility {
         int result = statement.executeUpdate(insertStatement);
         connection.close();
         return result > 0; //maybe return void?
+    }
+
+    public User getCurrentUser(){
+        return currentUser;
     }
 }

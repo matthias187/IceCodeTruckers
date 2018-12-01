@@ -13,6 +13,7 @@ public class Main extends Application
     public static int MENU_WIDTH = 1024;
     public static int MENU_HEIGHT = 640;
     public static Stage stage;
+    public User currentUser;
     public static void main( String[] args )
     {
         launch(args);

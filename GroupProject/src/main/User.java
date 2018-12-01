@@ -5,15 +5,26 @@ import java.util.ArrayList;
 public class User {
 
     private int userID;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String userName;
     private ArrayList<Order> orders;
     private Address address;
+    private String password;
     private PaymentMethod paymentMethod;
     private String email;
     private boolean isAdmin;
 
     public User(){}
+
+    public User(int userID, String firstName, String lastName, String userName, String password, String email, boolean isAdmin){
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
 
 
     public int getUserID() {
@@ -24,12 +35,18 @@ public class User {
         this.userID = userID;
     }
 
-    public String getName() {
-        return name;
+    public String getFirsName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getLastName() { return lastName; }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUserName() {
@@ -83,8 +100,7 @@ public class User {
     private void placeOrder(Order orderToPlace){
         // Do stuff
     }
-
-    private void reportError(ErrorMessage errorToReport){
-        // Do stuff
+    public String getPassword() {
+        return password;
     }
 }

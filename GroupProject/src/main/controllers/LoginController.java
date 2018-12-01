@@ -8,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import main.DatabaseUtility;
+import main.Main;
+import main.User;
 
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -25,6 +27,7 @@ public class LoginController {
     private PasswordField password;
 
     private ControllerUtility utility = new ControllerUtility();
+    private DatabaseUtility dbUtility = new DatabaseUtility();
 
     @FXML
     public void registerNewUserPressed() throws IOException {
@@ -45,9 +48,15 @@ public class LoginController {
             utility.showAlert("Authentication Error", "Incorrect password!");
         }
         else if(getUser.getString(7).equals("T")){
+            dbUtil.currentUser = new User(getUser.getInt(1), getUser.getString(2), getUser.getString(3), getUser.getString(8), getUser.getString(9), "", true);
             utility.loadNewFXML(stage, "../fxmls/admin_landing_page.fxml");
         }
-        else utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
+        else if(getUser.getString(7).equals("F")) {
+            dbUtil.currentUser = new User(getUser.getInt(1), getUser.getString(2), getUser.getString(3), getUser.getString(8), getUser.getString(9), "", false);
+            utility.loadNewFXML(stage, "../fxmls/user_landing_page.fxml");
+        } else {
+            utility.showAlert("Authentication Error", "Please enter a valid username and password");
+        }
     }
 
 }
