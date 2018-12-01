@@ -17,7 +17,7 @@
       <VBox layoutX="67.0" layoutY="13.0" prefHeight="550.0" prefWidth="204.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
-            <TextField>
+            <TextField fx:id="username">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
@@ -29,58 +29,58 @@
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
-            <TextField>
+            <TextField fx:id="firstName">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
-            <TextField>
+            <TextField fx:id="lastName">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" />
-            <TextField />
+            <TextField fx:id="emailAddress" />
          </children>
       </VBox>
       <VBox layoutX="411.0" layoutY="13.0" prefHeight="550.0" prefWidth="204.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
-            <TextField>
+            <TextField fx:id="country">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Number" />
-            <TextField>
+            <TextField fx:id="streetNumber">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Unit #" />
-            <TextField>
+            <TextField fx:id="unitNumber">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Name" />
-            <TextField>
+            <TextField fx:id="streetName">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField>
+            <TextField fx:id="city">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-            <TextField>
+            <TextField fx:id="state">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
-            <TextField>
+            <TextField fx:id="zip">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
@@ -93,14 +93,14 @@
                   <Insets bottom="7.0" />
                </VBox.margin>
             </Text>
-            <MenuButton mnemonicParsing="false" text="Visa">
+            <MenuButton fx:id="cardType" mnemonicParsing="false" text="Visa">
               <items>
                 <MenuItem mnemonicParsing="false" text="Mastercard" />
                 <MenuItem mnemonicParsing="false" text="American Express" />
               </items>
             </MenuButton>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Number" />
-            <TextField>
+            <TextField fx:id="creditCardNumber">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
@@ -108,7 +108,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Credit Card Expirateion Date" />
             <HBox prefHeight="24.0" prefWidth="204.0">
                <children>
-                  <MenuButton mnemonicParsing="false" text="01">
+                  <MenuButton fx:id="cardExpirationMonth" mnemonicParsing="false" text="01">
                     <items>
                       <MenuItem mnemonicParsing="false" text="02" />
                       <MenuItem mnemonicParsing="false" text="03" />
@@ -123,7 +123,7 @@
                         <MenuItem mnemonicParsing="false" text="12" />
                     </items>
                   </MenuButton>
-                  <MenuButton mnemonicParsing="false" text="2018">
+                  <MenuButton fx:id="cardExpirationYear" mnemonicParsing="false" text="2018">
                     <items>
                       <MenuItem mnemonicParsing="false" text="2019" />
                       <MenuItem mnemonicParsing="false" text="2020" />
@@ -143,46 +143,46 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
             </Text>
-            <CheckBox mnemonicParsing="false" text="Same as shipping">
+            <CheckBox fx:id="sameAsShipping" mnemonicParsing="false" text="Same as shipping">
                <VBox.margin>
                   <Insets bottom="5.0" />
                </VBox.margin>
             </CheckBox>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country" />
-            <TextField>
+            <TextField fx:id="paymentCountry">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Number" />
-            <TextField>
+            <TextField fx:id="paymentStreetNumber">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Unit #" />
-            <TextField>
+            <TextField fx:id="paymentUnitNumber">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Name" />
-            <TextField>
+            <TextField fx:id="paymentStreetName">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" />
-            <TextField>
+            <TextField fx:id="paymentCity">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" />
-            <TextField>
+            <TextField fx:id="paymentState">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
-            <TextField>
+            <TextField fx:id="paymentZip">
                <VBox.margin>
                   <Insets bottom="7.0" />
                </VBox.margin></TextField>

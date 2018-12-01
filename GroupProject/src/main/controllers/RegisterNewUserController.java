@@ -69,32 +69,14 @@ public class RegisterNewUserController {
     @FXML
     public void submitNewUser() throws IOException, SQLException {
         DatabaseUtility dbUtil = new DatabaseUtility();
-        ResultSet getUser = dbUtil.queryDatabase("SELECT * FROM Users WHERE Username='"+username+"'");
-        if (!getUser.next()) {
+        String query = "SELECT * FROM User WHERE UserName=\'"+username.getText()+"\';";
+        ResultSet getUser = dbUtil.queryDatabase(query);
+        String createUser = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES (\'"+firstName.getText()+"\', \'"+lastName.getText()+"\', \'"+streetName.getText()+"\', \'"+city.getText()+"\', 1112223333, 'F', \'"+username.getText()+"\', \'"+password.getText()+"\');";
+        String payment = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
+        if (getUser.next()) {
             utility.showAlert("Registration Error", "That username already exists!");
         } else {
-            dbUtil.insertDatabase("INSERT INTO Addresses ("
-                    + country + ", "
-                    + streetNumber + ", "
-                    + streetName +  ", "
-                    + city + ", "
-                    + state + ", "
-                    + zip + ");"
-            );
-            dbUtil.insertDatabase("INSRT INTO Payment ("
-                    + creditCardNumber + ", "
-                    + cardType + ", "
-                    + cardExpirationMonth + ", "
-                    + cardExpirationYear + ", "
-                    // add payment address info
-            );
-            dbUtil.insertDatabase("INSERT INTO Users ("
-                    + username + ", "
-                    + password + ", "
-                    + firstName +  ", "
-                    + lastName + ", "
-                    + emailAddress + ");"
-            );
+            dbUtil.insertDatabase(createUser);
             utility.back();
         }
     }
