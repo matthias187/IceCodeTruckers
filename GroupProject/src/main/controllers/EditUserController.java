@@ -22,7 +22,7 @@ public class EditUserController {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private TextField firstName;
     @FXML
@@ -74,7 +74,7 @@ public class EditUserController {
         password.setText(currentUser.getPassword());
         firstName.setText(currentUser.getFirsName());
         lastName.setText(currentUser.getLastName());
-
+        emailAddress.setText(currentUser.getEmail());
     }
 
     @FXML
@@ -83,17 +83,22 @@ public class EditUserController {
             utility.showAlert("Update Error", "You must enter a username and password!");
         }
         DatabaseUtility dbUtil = new DatabaseUtility();
-        String query = "SELECT * FROM User WHERE UserID=\'"+dbUtil.getCurrentUser().getUserID()+"\';";
+        String query = "SELECT * FROM User WHERE Username=\'"+username.getText()+"\';";
         ResultSet getUser = dbUtil.queryDatabase(query);
-        String updateUser = "UPDATE User SET FirstName = \'"+firstName.getText()+"\', LastName = \'"+lastName.getText()+"\', Street = \'"+streetName.getText()+"\', City = \'"+city.getText()+"\', UserName = \'"+username.getText()+"\', Password = \'"+password.getText()+"\' WHERE UserID = \'"+dbUtil.getCurrentUser().getUserID()+"\'";
+        String updateUser = "UPDATE User SET FirstName = \'"+firstName.getText()+"\', LastName = \'"+lastName.getText()+"\',  UserName = \'"+username.getText()+"\', Password = \'"+password.getText()+"\', Email = \'"+emailAddress.getText()+"\' WHERE UserID = \'"+dbUtil.getCurrentUser().getUserID()+"\'";
         String payment = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
-        if (getUser.next() && !dbUtility.getCurrentUser().getUserName().equals(getUser.getString(8))) {
+        getUser.next();
+        String currentUN = dbUtility.getCurrentUser().getUserName();
+        String queryUN = getUser.getString(2);
+        boolean test = (!currentUN.equals(queryUN));
+        if (test) {
             utility.showAlert("Update Error", "That username already exists!");
         } else {
             dbUtil.insertDatabase(updateUser);
             dbUtil.getCurrentUser().setUserName(username.getText());
             dbUtil.getCurrentUser().setFirstName(firstName.getText());
             dbUtil.getCurrentUser().setLastName(lastName.getText());
+            dbUtil.getCurrentUser().setEmail(emailAddress.getText());
             utility.showAlert("Update Accepted", "Update Successful!!");
             utility.back();
         }

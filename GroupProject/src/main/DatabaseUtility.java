@@ -4,11 +4,11 @@ import java.sql.*;
 
 public class DatabaseUtility {
 
-    private final String username = "IceCode";
+    private final String username = "IceCodeTruckers";
     private final String password = "Icecodetruckers!";
-    private final String hostname = "icecreamdb.cyjhszrx5hbj.us-west-1.rds.amazonaws.com";
+    private final String hostname = "icecodetruckers.cyjhszrx5hbj.us-west-1.rds.amazonaws.com";
     private final String port = "3306";
-    private final String databaseName = "IceCream";
+    private final String databaseName = "IceCodeTruckers";
     private final String jdburl = "jdbc:mysql://" + hostname + ":" + port + "/" + databaseName + "?user=" + username + "&password=" + password;
     private static Connection connection;
     public static User currentUser;

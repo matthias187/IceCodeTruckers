@@ -1,10 +1,7 @@
 package main.controllers;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import main.DatabaseUtility;
 import java.io.IOException;
 import java.sql.ResultSet;
@@ -20,13 +17,13 @@ public class RegisterNewUserController {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private TextField firstName;
     @FXML
     private TextField lastName;
     @FXML
-    private TextField emailAddress;
+    private TextField email;
     @FXML
     private TextField country;
     @FXML
@@ -74,8 +71,8 @@ public class RegisterNewUserController {
         DatabaseUtility dbUtil = new DatabaseUtility();
         String query = "SELECT * FROM User WHERE UserName=\'"+username.getText()+"\';";
         ResultSet getUser = dbUtil.queryDatabase(query);
-        String createUser = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES (\'"+firstName.getText()+"\', \'"+lastName.getText()+"\', \'"+streetName.getText()+"\', \'"+city.getText()+"\', 1112223333, 'F', \'"+username.getText()+"\', \'"+password.getText()+"\');";
-        String payment = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
+        String createUser = "INSERT INTO User (FirstName, LastName, isAdmin, UserName, Password, Email) VALUES (\'"+firstName.getText()+"\', \'"+lastName.getText()+"\', 'F', \'"+username.getText()+"\', \'"+password.getText()+"\', \'"+ email.getText()+"\');";
+        String payment = "INSERT INTO User (FirstName, LastName, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
         if (getUser.next()) {
             utility.showAlert("Registration Error", "That username already exists!");
         } else {
