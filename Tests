@@ -1,0 +1,68 @@
+package GroupProject.src.main;
+import org.junit.runner.JUnitCore;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+import static org.junit.Assert.*;
+import GroupProject.src.main.Order;
+import GroupProject.src.main.User;
+import GroupProject.src.main.controllers.*;
+
+
+
+public class Tests
+{
+    @Test
+    public void setUpBeforeClass() throws Exception
+    {
+        Result result= JUnitCore.runClasses(ErrorMessage.class);
+        for (Failure failure : result.getFailures())
+        {
+            System.out.println(failure.toString());
+        }
+        
+        
+    }
+    @Test
+    public void TestMain() throws Exception
+    {
+        Result result= JUnitCore.runClasses(Main.class);
+       /* if (failure==true)
+        {
+            
+        }
+        */
+    }
+    
+    /*public void TestOrder() throws Exception
+    {
+       Result result= JUnitCore.runClasses(Order.class); 
+        if (Order.getStatus() ==null)
+        {
+            System.out.println("no User found");
+        }
+        return Order.getOrderingUser();
+    
+        */
+    
+    
+    
+            
+        
+        @Test
+        public void TestUser() throws Exception
+        {
+            Result result=JUnitCore.runClasses(User.class);
+            if (User.getUserID() ==null)
+            {
+                System.out.println( "no User ID found");
+            }
+            User.setUserID();
+        }
+            
+            
+        
+        
+}   
+
