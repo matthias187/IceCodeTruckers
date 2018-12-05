@@ -42,6 +42,19 @@ public class DatabaseUtility {
         return result > 0; //maybe return void?
     }
 
+    public void insert(String table, String[] fields, String[] values) throws SQLException {
+        String statement = "INSERT INTO "+table+" (";
+        for(int i=0; i<fields.length-1;i++){
+            statement+=fields[i]+", ";
+        }
+        statement += fields[fields.length-1]+") VALUES (";
+        for(int i=0; i<values.length-1;i++){
+            statement+=values[i]+", ";
+        }
+        statement += values[values.length-1]+");";
+        insertDatabase(statement);
+    }
+
     public User getCurrentUser(){
         return currentUser;
     }

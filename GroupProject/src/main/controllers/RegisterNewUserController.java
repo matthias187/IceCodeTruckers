@@ -6,6 +6,8 @@ import main.DatabaseUtility;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLRecoverableException;
+import java.util.zip.ZipEntry;
 
 public class RegisterNewUserController {
     private ControllerUtility utility = new ControllerUtility();
@@ -65,6 +67,30 @@ public class RegisterNewUserController {
 
     @FXML
     public void submitNewUser() throws IOException, SQLException {
+        String userName = username.getText();
+        String pw = password.getText();
+        String fn = firstName.getText();
+        String ln = lastName.getText();
+        String em = email.getText();
+        String cntry = country.getText();
+        String streetnum = streetNumber.getText();
+        String unitnum = unitNumber.getText();
+        String street = streetName.getText();
+        String cityname = city.getText();
+        String st = state.getText();
+        String zp = zip.getText();
+        String ccnum = creditCardNumber.getText();
+        String pcntry = paymentCountry.getText();
+        String pstreetnum = paymentStreetNumber.getText();
+        String punit = paymentUnitNumber.getText();
+        String pstreet = paymentStreetName.getText();
+        String pcity = paymentCity.getText();
+        String pstate = paymentState.getText();
+        String pzip = paymentZip.getText();
+        String cardtype = cardType.getText();
+        String pmo = cardExpirationMonth.getText();
+        String pyr = cardExpirationYear.getText();
+
         if( username.getText().equals("") || password.getText().equals("")){
             utility.showAlert("Registration Error", "You must enter a username and password!");
         }
@@ -77,6 +103,17 @@ public class RegisterNewUserController {
             utility.showAlert("Registration Error", "That username already exists!");
         } else {
             dbUtil.insertDatabase(createUser);
+            getUser = dbUtil.queryDatabase(query);
+            getUser.next();
+            String[] fields = new String[]{"UserID", "Country", "StreetNumber", "Unit", "StreetName", "City", "State", "ZipCode"};
+            String[] values = new String[]{getUser.getString(1), "\'"+country.getText()+"\'",streetNumber.getText(),unitNumber.getText(), "\'"+streetName.getText()+"\'", "\'"+city.getText()+"\'", "\'"+state.getText()+"\'", zip.getText()};
+            dbUtil.insert("Address", fields, values);
+            query = "SELECT * FROM Address WHERE UserID="+getUser.getString(1)+";";
+            ResultSet getAddr = dbUtil.queryDatabase(query);
+            getAddr.next();
+            fields = new String[] {"UserID", "AddressID", "CartType", "CardNumber", "CardExpMonth", "CardExpYear"};
+            values = new String[] {getUser.getString(1), getAddr.getString(1), "\'"+cardType.getText()+"\'", creditCardNumber.getText(), cardExpirationMonth.getText(), cardExpirationYear.getText(),};
+            dbUtil.insert("PaymentInfo", fields, values);
             utility.back();
         }
     }

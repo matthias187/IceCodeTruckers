@@ -86,7 +86,7 @@ public class EditUserController {
         String query = "SELECT * FROM User WHERE Username=\'"+username.getText()+"\';";
         ResultSet getUser = dbUtil.queryDatabase(query);
         String updateUser = "UPDATE User SET FirstName = \'"+firstName.getText()+"\', LastName = \'"+lastName.getText()+"\',  UserName = \'"+username.getText()+"\', Password = \'"+password.getText()+"\', Email = \'"+emailAddress.getText()+"\' WHERE UserID = \'"+dbUtil.getCurrentUser().getUserID()+"\'";
-        String payment = "INSERT INTO User (FirstName, LastName, Street, City, Phone, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
+        String payment = "INSERT INTO PaymentInfo (UserID, AddressID, Street, City, Phone, isAdmn, UserName, Password) VALUES ('test1', 'test1', 'testStreet', 'tesyCity', 1112223333, 'F', 'user', 'password');";
         getUser.next();
         String currentUN = dbUtility.getCurrentUser().getUserName();
         String queryUN = getUser.getString(2);
